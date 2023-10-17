@@ -23,8 +23,11 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
+  "proxy": "http://localhost:8080",
   "scripts": {
-    "start": "craco start",
+    "start": "concurrently \"npm run client\" \"npm run server\"",
+    "server": "nodemon server.js",
+    "client": "craco start",
     "build": "CI=false && craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
