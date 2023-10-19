@@ -1,25 +1,37 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-
-const getData = async () => {
-  const data = await axios
-    .get('/error/400', { headers: {} })
-    .then((res) => {
-      console.log(res);
-      return res.data;
-    })
-    .catch((err) => {
-      console.log(err.response.data);
-      return err.response.data;
-    });
-  return data;
-};
+import { GlobalBoundary } from '@components/GlobalBoundary';
+import { Button, Row, TopContainer, TopWrapper } from '@components/layout';
+import { Error400 } from '@pages/Error400';
+import { Error401 } from '@pages/Error401';
+import { Error403 } from '@pages/Error403';
+import { Error404 } from '@pages/Error404';
+import { Error500 } from '@pages/Error500';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 
 function App() {
-  const { data, error } = useQuery<any, any>(['error'], getData, { retry: 0 });
-  if (data) console.log('query data', data);
-  if (error) console.log('query error', error);
-  return <div></div>;
+  const navigation = useNavigate();
+
+  return (
+    <TopContainer>
+      <GlobalBoundary>
+        <TopWrapper>
+          <Row style={{ flex: 0, paddingBottom: '1rem', gap: '1rem' }}>
+            <Button onClick={() => navigation('400')}>400</Button>
+            <Button onClick={() => navigation('401')}>401</Button>
+            <Button onClick={() => navigation('403')}>403</Button>
+            <Button onClick={() => navigation('404')}>404</Button>
+            <Button onClick={() => navigation('500')}>500</Button>
+          </Row>
+          <Routes>
+            <Route path="/400" element={<Error400 />} />
+            <Route path="/401" element={<Error401 />} />
+            <Route path="/403" element={<Error403 />} />
+            <Route path="/404" element={<Error404 />} />
+            <Route path="/500" element={<Error500 />} />
+          </Routes>
+        </TopWrapper>
+      </GlobalBoundary>
+    </TopContainer>
+  );
 }
 
 export default App;

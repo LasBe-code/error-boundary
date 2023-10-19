@@ -9,11 +9,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/error/:codeNum', function (req, res) {
-  console.log('Call Error Api: ', req.hostname);
+  console.log('Call Error Api: ', req.hostname + req.url + ' ' + req.method);
   const codeNum = req.params.codeNum;
   switch (codeNum) {
     case '400':
-      res.status(400).json({ code: '400', message: 'Bad Request' });
+      res.status(400).json({ code: '400', message: '잘못된 요청입니다.' });
       break;
     case '401':
       res.status(401).json({ code: '401', message: 'Unauthorized' });
@@ -28,7 +28,7 @@ app.get('/error/:codeNum', function (req, res) {
       res.status(500).json({ code: '500', message: 'Internal Server Error' });
       break;
     default:
-      res.status(500).json({ code: '' });
+      res.status(200).json({ code: '200', message: 'OK', payload: { title: '안녕하세요', contents: '반갑습니다' } });
       break;
   }
 });
