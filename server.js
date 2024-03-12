@@ -32,3 +32,8 @@ app.get('/error/:codeNum', function (req, res) {
       break;
   }
 });
+
+app.post('/error', function (req, res) {
+  console.log('Call Error Api: ', req.hostname + req.url + ' ' + req.method);
+  res.status(500).json({ code: '5000', message: 'Internal Server Error' });
+});

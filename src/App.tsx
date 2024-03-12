@@ -5,6 +5,7 @@ import { Error401 } from '@pages/Error401';
 import { Error403 } from '@pages/Error403';
 import { Error404 } from '@pages/Error404';
 import { Error500 } from '@pages/Error500';
+import { Mutation } from '@pages/Mutation';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
             <Button onClick={() => navigation('403')}>403</Button>
             <Button onClick={() => navigation('404')}>404</Button>
             <Button onClick={() => navigation('500')}>500</Button>
+            <Button onClick={() => navigation('mutation')}>Mutation</Button>
           </Row>
           <Routes>
             <Route path="/400" element={<Error400 />} />
@@ -27,6 +29,7 @@ function App() {
             <Route path="/403" element={<Error403 />} />
             <Route path="/404" element={<Error404 />} />
             <Route path="/500" element={<Error500 />} />
+            <Route path="/mutation" element={<Mutation />} />
           </Routes>
         </TopWrapper>
       </GlobalBoundary>

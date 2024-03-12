@@ -1,7 +1,6 @@
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { ErrorFallback } from './ErrorFallback';
 import { Loading } from './Loading';
 import { GlobalErrorFallback } from './GlobalErrorFallback';
 

@@ -3,9 +3,8 @@ import { Button, FallbackContinaer } from './layout';
 import { useNavigate } from 'react-router-dom';
 
 export const GlobalErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
-  const navigation = useNavigate();
-  const code = error?.data?.code;
-  const message = error?.data?.message;
+  const code = error?.response?.data?.code;
+  const message = error?.response?.data?.message;
   if (code === '401') {
     return (
       <FallbackContinaer>

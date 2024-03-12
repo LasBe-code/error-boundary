@@ -2,8 +2,8 @@ import { FallbackProps } from 'react-error-boundary';
 import { Button, FallbackContinaer } from './layout';
 
 export const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
-  const code = error?.data?.code;
-  const message = error?.data?.message;
+  const code = error?.response?.data?.code;
+  const message = error?.response?.data?.message;
   if (code === '401') throw error;
   return (
     <FallbackContinaer>

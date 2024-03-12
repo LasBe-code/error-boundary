@@ -8,20 +8,10 @@ export type DataType = {
 };
 
 const getData = async (param: string) => {
-  try {
-    const data = await axios.get<DataType>(`/error/${param}`, { headers: {} });
-    return data.data;
-  } catch (error: any) {
-    throw error.response;
-  }
+  const data = await axios.get<DataType>(`/error/${param}`, { headers: {} });
+  return data.data;
 };
 export const useCallApi = (param: string) => {
-  const { data } = useQuery(['api', param], () => getData(param), {
-    refetchOnWindowFocus: false,
-    retry: false,
-    suspense: true,
-    useErrorBoundary: true,
-    enabled: !!param,
-  });
+  const { data } = useQuery({ queryKey: ['api', param], queryFn: () => getData(param), refetchOnWindowFocus: false });
   return data;
 };
