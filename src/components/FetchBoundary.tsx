@@ -4,7 +4,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorFallback } from './ErrorFallback';
 import { Loading } from './Loading';
 
-export const FetchBoundary = ({ children }: { children: React.ReactNode }) => {
+export const FetchBoundary = ({ children }: { children: React.ReactElement }) => {
   const { reset } = useQueryErrorResetBoundary();
   return (
     <ErrorBoundary onReset={reset} FallbackComponent={ErrorFallback}>
