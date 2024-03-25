@@ -1,14 +1,12 @@
 import { Button, Card } from '@components/layout';
-import { useMutation } from '@tanstack/react-query';
-import axios from 'axios';
-
-const postFn = async () => {
-  const response = await axios.post('/error');
-  return response;
-};
+import { useMutation, useMutationState } from '@tanstack/react-query';
 
 export const Mutation = () => {
-  const mutation = useMutation({ mutationKey: ['mutation'], mutationFn: postFn });
+  const mutation = useMutation({ mutationKey: ['error'] });
+  const data = useMutationState({filters: {mutationKey: ['error']}});
+  console.log(data)
+  const data2 = useMutationState({filters: {status:'error',mutationKey: ['error']},select:(mutation)=>mutation});
+  console.log(data2)
   return (
     <Card>
       <Button onClick={() => mutation.mutate()}>Mutation</Button>

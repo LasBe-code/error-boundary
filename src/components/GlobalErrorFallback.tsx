@@ -1,6 +1,5 @@
 import { FallbackProps } from 'react-error-boundary';
 import { Button, FallbackContinaer } from './layout';
-import { useNavigate } from 'react-router-dom';
 
 export const GlobalErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   const code = error?.response?.data?.code;
