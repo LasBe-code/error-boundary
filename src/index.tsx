@@ -9,6 +9,7 @@ import './index.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
+import { getErrorDataByCode } from '@constants/errorCode';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -20,7 +21,8 @@ const queryClient = new QueryClient({
     },
     mutations: {
       onError: (error: any) => {
-        toast.error(`${error.message}, ${error.name}, ${error?.response?.data?.code}, ${error?.response?.data?.message}`);
+        const errorData = getErrorDataByCode(error);
+        toast.error(`[${errorData.code}] ${errorData.message}`);
       },
     },
   },

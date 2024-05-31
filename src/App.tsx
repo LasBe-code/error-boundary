@@ -5,6 +5,8 @@ import { Error401 } from '@pages/Error401';
 import { Error403 } from '@pages/Error403';
 import { Error404 } from '@pages/Error404';
 import { Error500 } from '@pages/Error500';
+import { Login } from '@pages/Login';
+import { Main } from '@pages/Main';
 import { Mutation } from '@pages/Mutation';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 
@@ -30,6 +32,8 @@ function App() {
             <Route path="/404" element={<Error404 />} />
             <Route path="/500" element={<Error500 />} />
             <Route path="/mutation" element={<Mutation />} />
+            <Route path="/main" element={<Main />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </TopWrapper>
       </GlobalBoundary>

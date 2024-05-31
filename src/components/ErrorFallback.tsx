@@ -1,18 +1,17 @@
 import { FallbackProps } from 'react-error-boundary';
-import { Button, FallbackContinaer } from './layout';
+import { FallbackContinaer } from './layout';
 import { getErrorDataByCode } from '@constants/errorCode';
 
-export const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
+export const ErrorFallback = ({ error }: FallbackProps) => {
   const errorData = getErrorDataByCode(error);
 
-  if (error.code === '401') throw error;
+  // 인증이 필요한 에러일 경우 상위 Boundary로 Error를 전파
+  if (errorData.requireLogin) throw error;
+
   return (
     <FallbackContinaer>
-      <h1>{errorData?.CODE}</h1>
-      <h2>{errorData?.MESSAGE}</h2>
-      <span>오류가 발생했습니다.</span>
-      <span>재시도 해주세요.</span>
-      <Button onClick={resetErrorBoundary}>재시도</Button>
+      <h1>{errorData?.code}</h1>
+      <h2>{errorData?.message}</h2>
     </FallbackContinaer>
   );
 };

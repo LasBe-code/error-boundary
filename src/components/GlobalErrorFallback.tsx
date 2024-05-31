@@ -1,27 +1,23 @@
 import { FallbackProps } from 'react-error-boundary';
 import { Button, FallbackContinaer } from './layout';
+import { getErrorDataByCode } from '@constants/errorCode';
+import { useNavigate } from 'react-router-dom';
 
 export const GlobalErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
-  const code = error?.response?.data?.code;
-  const message = error?.response?.data?.message;
-  if (code === '401') {
-    return (
-      <FallbackContinaer>
-        <h1>{code}</h1>
-        <h2>{message}</h2>
-        <span>로그인이 필요합니다.</span>
-        <span>로그인 페이지로 이동합니다.</span>
-        <Button onClick={() => (window.location.href = '/400')}>로그인</Button>
-      </FallbackContinaer>
-    );
-  }
+  const navigate = useNavigate();
+  const navigatePage = (to: string) => {
+    // 에러가 발생한 경우 resetErrorBoundary를 호출하여 에러를 초기화
+    resetErrorBoundary();
+    navigate(to);
+  };
+  const errorData = getErrorDataByCode(error);
   return (
     <FallbackContinaer>
-      <h1>{code}</h1>
-      <h2>{message}</h2>
-      <span>오류가 발생했습니다.</span>
-      <span>재시도 해주세요.</span>
-      <Button onClick={resetErrorBoundary}>재시도</Button>
+      <h1>{errorData.code}</h1>
+      <h2>{errorData.message}</h2>
+      <Button onClick={() => navigatePage(errorData.requireLogin ? '/login' : '/main')}>
+        {errorData.requireLogin ? '로그인 이동' : '메인화면 이동'}
+      </Button>
     </FallbackContinaer>
   );
 };
