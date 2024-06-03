@@ -1,5 +1,5 @@
-import { Card } from '@components/layout';
+import { Container } from '@components/atoms';
 
 export const Error404 = () => {
-  return <Card>404</Card>;
+  return <Container.Card>404</Container.Card>;
 };

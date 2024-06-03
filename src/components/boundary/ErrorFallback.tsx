@@ -1,5 +1,5 @@
 import { FallbackProps } from 'react-error-boundary';
-import { Button, FallbackContinaer } from '../layout';
+import { Button, Container } from '../atoms';
 import { getErrorDataByCode } from '@components/boundary/getErrorDataByCode';
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 
@@ -16,10 +16,10 @@ export const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   };
 
   return (
-    <FallbackContinaer>
+    <Container.Column>
       <h1>{errorData?.code}</h1>
       <h2>{errorData?.message}</h2>
       <Button onClick={handleClickReset}>재시도</Button>
-    </FallbackContinaer>
+    </Container.Column>
   );
 };

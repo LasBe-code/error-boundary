@@ -1,12 +1,12 @@
 import { useCallApi } from '@hooks/useCallApi';
-import { Card } from './layout';
+import { Container } from './atoms';
 
 export const Content = ({ param }: { param: string }) => {
   const data = useCallApi(param);
   return (
-    <Card>
+    <Container.Card>
       <h1>{data?.payload?.title}</h1>
       <p>{data?.payload?.contents}</p>
-    </Card>
+    </Container.Card>
   );
 };

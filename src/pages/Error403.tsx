@@ -1,13 +1,13 @@
 import { FetchBoundary } from '@components/boundary/FetchBoundary';
 import { Content } from '@components/Content';
-import { Card } from '@components/layout';
+import { Container } from '@components/atoms';
 
 export const Error403 = () => {
   return (
-    <Card>
+    <Container.Card>
       <FetchBoundary>
         <Content param="403" />
       </FetchBoundary>
-    </Card>
+    </Container.Card>
   );
 };

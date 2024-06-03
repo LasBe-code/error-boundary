@@ -1,10 +1,10 @@
-import { FallbackContinaer } from './layout';
+import { Container } from './atoms';
 import { Loader } from '@lasbe/loader';
 
 export const Loading = () => {
   return (
-    <FallbackContinaer>
+    <Container.Column>
       <Loader isLoading color="#2a9d8f" size="xxl" />
-    </FallbackContinaer>
+    </Container.Column>
   );
 };

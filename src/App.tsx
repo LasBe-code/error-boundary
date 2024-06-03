@@ -1,5 +1,5 @@
 import { GlobalBoundary } from '@components/boundary/GlobalBoundary';
-import { Button, Row, TopContainer, TopWrapper } from '@components/layout';
+import { Button, Container } from '@components/atoms';
 import { Error400 } from '@pages/Error400';
 import { Error401 } from '@pages/Error401';
 import { Error403 } from '@pages/Error403';
@@ -14,17 +14,17 @@ function App() {
   const navigation = useNavigate();
 
   return (
-    <TopContainer>
+    <Container.Top>
       <GlobalBoundary>
-        <TopWrapper>
-          <Row style={{ flex: 0, paddingBottom: '1rem', gap: '1rem' }}>
+        <Container.Main>
+          <Container.Row style={{ flex: 0, paddingBottom: '1rem', gap: '1rem' }}>
             <Button onClick={() => navigation('400')}>400</Button>
             <Button onClick={() => navigation('401')}>401</Button>
             <Button onClick={() => navigation('403')}>403</Button>
             <Button onClick={() => navigation('404')}>404</Button>
             <Button onClick={() => navigation('500')}>500</Button>
             <Button onClick={() => navigation('mutation')}>Mutation</Button>
-          </Row>
+          </Container.Row>
           <Routes>
             <Route path="/400" element={<Error400 />} />
             <Route path="/401" element={<Error401 />} />
@@ -35,9 +35,9 @@ function App() {
             <Route path="/main" element={<Main />} />
             <Route path="/login" element={<Login />} />
           </Routes>
-        </TopWrapper>
+        </Container.Main>
       </GlobalBoundary>
-    </TopContainer>
+    </Container.Top>
   );
 }
 

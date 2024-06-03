@@ -1,5 +1,5 @@
-import { Card } from '@components/layout';
+import { Container } from '@components/atoms';
 
 export const Error500 = () => {
-  return <Card>500</Card>;
+  return <Container.Card>500</Container.Card>;
 };

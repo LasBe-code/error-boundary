@@ -1,20 +1,20 @@
 import { FetchBoundary } from '@components/boundary/FetchBoundary';
 import { Content } from '@components/Content';
-import { Card } from '@components/layout';
+import { Container } from '@components/atoms';
 
 export const Error400 = () => {
   return (
     <>
-      <Card>
+      <Container.Card>
         <FetchBoundary>
           <Content param="400" />
         </FetchBoundary>
-      </Card>
-      <Card>
+      </Container.Card>
+      <Container.Card>
         <FetchBoundary>
           <Content param="4001" />
         </FetchBoundary>
-      </Card>
+      </Container.Card>
     </>
   );
 };

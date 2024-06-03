@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { RecoilRoot } from 'recoil';
 import { BrowserRouter } from 'react-router-dom';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import './index.css';
@@ -37,11 +36,9 @@ queryClient.setMutationDefaults(['error'], { mutationFn: postFn });
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RecoilRoot>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </RecoilRoot>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
     <ToastContainer />

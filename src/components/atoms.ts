@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const TopContainer = styled.div`
+const Top = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -9,7 +9,7 @@ export const TopContainer = styled.div`
   background-color: aliceblue;
 `;
 
-export const TopWrapper = styled.div`
+const Main = styled.main`
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -17,15 +17,22 @@ export const TopWrapper = styled.div`
   padding: 1rem;
 `;
 
-export const Column = styled.div`
+const Column = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 `;
 
-export const Row = styled.div`
+const Card = styled.div`
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+  background-color: white;
+`;
+
+const Row = styled.div`
   display: flex;
   flex: 1;
   flex-direction: row;
@@ -33,17 +40,13 @@ export const Row = styled.div`
   align-items: center;
 `;
 
-export const Card = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  border-radius: 16px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
-  background-color: white;
-`;
+export const Container = {
+  Top,
+  Main,
+  Column,
+  Card,
+  Row,
+};
 
 export const Button = styled.button`
   min-width: 100px;
@@ -62,13 +65,4 @@ export const Button = styled.button`
   &:active {
     transform: scale(1);
   }
-`;
-
-export const FallbackContinaer = styled.div`
-  display: flex;
-  flex: 1 1 0;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
 `;
