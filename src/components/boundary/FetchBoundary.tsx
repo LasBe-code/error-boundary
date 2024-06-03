@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorFallback } from './ErrorFallback';
-import { Loading } from './Loading';
+import { Loading } from '@components/Loading';
 
 export const FetchBoundary = ({ children }: { children: React.ReactElement }) => {
   return (

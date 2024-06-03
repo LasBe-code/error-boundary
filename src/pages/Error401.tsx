@@ -1,5 +1,5 @@
+import { FetchBoundary } from '@components/boundary/FetchBoundary';
 import { Content } from '@components/Content';
-import { FetchBoundary } from '@components/FetchBoundary';
 
 export const Error401 = () => {
   return (

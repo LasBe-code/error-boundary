@@ -4,7 +4,7 @@ type ErrorCodeType = {
   [key: string]: { code: string; message: string; requireLogin?: boolean };
 };
 
-export const ERROR_CODE: ErrorCodeType = {
+const ERROR_CODE: ErrorCodeType = {
   default: { code: 'ERROR', message: '알 수 없는 오류가 발생했습니다.' },
 
   // axios error

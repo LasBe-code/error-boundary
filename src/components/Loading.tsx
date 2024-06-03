@@ -1,10 +1,10 @@
-import { ClipLoader } from 'react-spinners';
 import { FallbackContinaer } from './layout';
+import { Loader } from '@lasbe/loader';
 
 export const Loading = () => {
   return (
     <FallbackContinaer>
-      <ClipLoader color={'rgba(0,0,0)'} />
+      <Loader isLoading color="#2a9d8f" size="xxl" />
     </FallbackContinaer>
   );
 };

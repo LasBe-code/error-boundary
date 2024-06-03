@@ -1,12 +1,12 @@
 import { FallbackProps } from 'react-error-boundary';
-import { Button, FallbackContinaer } from './layout';
-import { getErrorDataByCode } from '@constants/errorCode';
+import { getErrorDataByCode } from '@components/boundary/getErrorDataByCode';
 import { useNavigate } from 'react-router-dom';
+import { FallbackContinaer, Button } from '@components/layout';
 
 export const GlobalErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   const navigate = useNavigate();
   const navigatePage = (to: string) => {
-    // 에러가 발생한 경우 resetErrorBoundary를 호출하여 에러를 초기화
+    // resetErrorBoundary를 호출하여 에러를 초기화
     resetErrorBoundary();
     navigate(to);
   };

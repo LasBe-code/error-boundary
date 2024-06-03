@@ -8,7 +8,7 @@ export type DataType = {
 };
 
 const getData = async (param: string) => {
-  const data = await axios.get<DataType>(`/error/${param}`, { headers: {} });
+  const data = await axios.get<DataType>(`/error/${param}`);
   return data.data;
 };
 

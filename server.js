@@ -14,8 +14,11 @@ app.get('/error/:codeNum', async function (req, res) {
     case '400':
       res.status(400).json({ code: 400, message: '잘못된 요청입니다.' });
       break;
+    case '4001':
+      res.status(400).json({ code: 4001, message: '잘못된 요청입니다.' });
+      break;
     case '401':
-      res.status(401).json({ code: 401, message: 'Unauthorized' });
+      res.status(401).json({ code: 4011, message: 'Unauthorized' });
       break;
     case '403':
       res.status(403).json({ code: 403, message: 'Forbidden' });

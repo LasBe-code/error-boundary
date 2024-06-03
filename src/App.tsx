@@ -1,4 +1,4 @@
-import { GlobalBoundary } from '@components/GlobalBoundary';
+import { GlobalBoundary } from '@components/boundary/GlobalBoundary';
 import { Button, Row, TopContainer, TopWrapper } from '@components/layout';
 import { Error400 } from '@pages/Error400';
 import { Error401 } from '@pages/Error401';

@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Loading } from './Loading';
 import { GlobalErrorFallback } from './GlobalErrorFallback';
+import { Loading } from '@components/Loading';
 
 export const GlobalBoundary = ({ children }: { children: React.ReactNode }) => {
   return (

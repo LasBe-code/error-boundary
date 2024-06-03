@@ -9,7 +9,7 @@ import './index.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
-import { getErrorDataByCode } from '@constants/errorCode';
+import { getErrorDataByCode } from '@components/boundary/getErrorDataByCode';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
@@ -17,6 +17,7 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 0,
+      staleTime: 0,
       throwOnError: true,
     },
     mutations: {
