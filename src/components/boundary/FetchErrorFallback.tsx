@@ -3,7 +3,7 @@ import { Button, Container } from '../atoms';
 import { getErrorDataByCode } from '@components/boundary/getErrorDataByCode';
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 
-export const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
+export const FetchErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   const { reset } = useQueryErrorResetBoundary();
   const errorData = getErrorDataByCode(error);
 
