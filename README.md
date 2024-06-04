@@ -1,4 +1,4 @@
-# ErrorBoundary
+# ErrorBoundary & Suspense, 거의 완벽한 사용방법 가이드 예제
 
 [BLOG: ErrorBoundary & Suspense, 거의 완벽한 사용방법 가이드](https://lasbe.tistory.com/204)  
 react-query v5를 이용해 Suspense + ErrorBoundary 컴포넌트로 로딩 및 에러 상태를 분리하는 예제입니다.  
